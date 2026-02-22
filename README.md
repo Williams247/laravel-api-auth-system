@@ -51,3 +51,9 @@
 
 ## Refresh database (You lose all your data)
 ### php artisan migrate:fresh
+
+## Create a middleware
+### php artisan make:middleware EnsureAuthenticated
+
+## Check current php version
+### php artisan --version

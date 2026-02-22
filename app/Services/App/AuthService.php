@@ -44,6 +44,7 @@ class AuthService
         # Generate token
         $token = $user->createToken('auth_token')->plainTextToken;
 
+        # Return response
         return JsonResponseService::json('Login successful', true, 200, [
             'user' => $user->only('id', 'name', 'email'),
             'token' => $token
