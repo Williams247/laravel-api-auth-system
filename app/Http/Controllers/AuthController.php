@@ -52,7 +52,13 @@ class AuthController extends Controller
         } catch (ValidationException $e) {
             return JsonResponseService::json('Validation error', false, 422, $e->errors());
         } catch (\Throwable $e) {
-            return JsonResponseService::json('Invalid credentials',false, 401,data: null);
+            return JsonResponseService::json('Invalid credentials', false, 401, data: null);
         }
+    }
+
+    public function logout_user(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return JsonResponseService::json('Successfully logged out', true, 200, data: null);
     }
 }
